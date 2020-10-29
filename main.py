@@ -1,25 +1,28 @@
-print('''
-    Start- start the car
-    Stop - stop the car
-    Quit - quit game
-    help - 
-    ''')
-command = input('Write your command: ')
-command=command.lower()
-state='stopped'
-while command!='quit':
-    if command=='help':
+command=''
+started=False
+while True:
+    command=input("> ").lower()
+    if command== 'start':
+        if started:
+            print('Car already started')
+        else:
+            print('Car started...')
+            started=True
+    elif command=='stop':
+        if started:
+            print('Car stopped')
+            started=False
+        else:
+            print('Car already stopped')
+    elif command=='help':
         print('''
-        Start- start the car
-        Stop - stop the car
-        Quit - quit game
-        help - show help menu
+start - start the car
+stop - stop the car
+quit- quit game
         ''')
-    elif command=='start':
-        print('Car started')
-        state='started'
-    elif command=='stop' and state=='started':
-        print('Car stopped')
-        state='stopped'
+    elif command=="quit":
+        print('quiting game')
+        break
     else:
-        print(" I do not recognize this command")
+        print("Sorry I don't understand that")
+    
