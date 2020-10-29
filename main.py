@@ -1,11 +1,25 @@
-secret_number=9
-guess_count=0
-guess_limit=3
-while guess_count < guess_limit:
-    guess=int(input('Make a guess : '))
-    guess_count +=1
-    if guess== secret_number:
-        print('you won')
-        break
-else:
-    print(f'you ran out of gueses.Correct number was {secret_number} ')
+print('''
+    Start- start the car
+    Stop - stop the car
+    Quit - quit game
+    help - 
+    ''')
+command = input('Write your command: ')
+command=command.lower()
+state='stopped'
+while command!='quit':
+    if command=='help':
+        print('''
+        Start- start the car
+        Stop - stop the car
+        Quit - quit game
+        help - show help menu
+        ''')
+    elif command=='start':
+        print('Car started')
+        state='started'
+    elif command=='stop' and state=='started':
+        print('Car stopped')
+        state='stopped'
+    else:
+        print(" I do not recognize this command")
